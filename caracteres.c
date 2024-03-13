@@ -1,18 +1,30 @@
 #include <stdio.h>
 #include <string.h>
 
-int contarCaracteres(char *texto) {
-    int tamanho = strlen(texto);
-    return tamanho;
-}
+int caracteres(char texto);
 
 int main() {
-    char texto[200];
+    
+    char texto[500];
+    
     printf("Digite um texto: ");
     scanf("%s", texto);
+    
+    caracteres(texto);
+    
+    
+}
 
+void caracteres(char *texto) {
+    
+    int linha;
+    int tamanho = strlen(texto);
+    
     int quantidade = contarCaracteres(texto);
     printf("O texto tem %d caracteres.\n", quantidade);
 
-    return 0;
+    return tamanho;
+    for (linha = 0; linha < strlen(texto); linha++) {
+        
+    }
 }

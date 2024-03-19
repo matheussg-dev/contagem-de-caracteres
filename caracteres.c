@@ -12,10 +12,22 @@ void contarCaracteres(const char *texto) {
     for (linha = 0; linha < strlen(texto); linha++) {
         frequencia[(unsigned char)tolower(texto[linha])]++;
     }
-    
-    for (int linha = 0; linha < 256; linha++) {
-        if (frequencia[linha] > 0) {
-            printf("Quantidade de caracteres: %d\n", frequencia[linha]);
+
+    printf("Os três caracteres mais frequentes:\n");
+    for (linha = 0; linha < 3; linha++) {
+        int frequenciaMaxima = 0;
+        char quantidadeMaxima = '\0';
+
+        for (int quantidade = 0; quantidade < 256; quantidade++) {
+            if (frequencia[quantidade] > frequenciaMaxima) {
+                frequenciaMaxima = frequencia[quantidade];
+                quantidadeMaxima = (char)quantidade;
+            }
+        }
+
+        if (quantidadeMaxima != '\0') {
+            printf("'%c' aparece %d vezes\n", quantidadeMaxima, frequenciaMaxima);
+            frequencia[quantidadeMaxima] = 0;
         }
     }
 }

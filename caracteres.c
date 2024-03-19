@@ -1,30 +1,27 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
-int caracteres(char texto);
+#define caracteresTotal 255
+
+void contarCaracteres(const char *texto) {
+
+    int frequencia[256] = {0};
+    int linha;
+
+    for (linha = 0; linha < strlen(texto); linha++) {
+        frequencia[(unsigned char)tolower(texto[linha])]++;
+    }
+}
 
 int main() {
     
-    char texto[500];
-    
+    char texto[caracteresTotal];
+
     printf("Digite um texto: ");
     scanf("%s", texto);
-    
-    caracteres(texto);
-    
-    
-}
 
-void caracteres(char *texto) {
-    
-    int linha;
-    int tamanho = strlen(texto);
-    
-    int quantidade = contarCaracteres(texto);
-    printf("O texto tem %d caracteres.\n", quantidade);
+    contarCaracteres(texto);
 
-    return tamanho;
-    for (linha = 0; linha < strlen(texto); linha++) {
-        
-    }
+    return 0;
 }

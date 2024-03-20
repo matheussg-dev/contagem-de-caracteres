@@ -55,7 +55,9 @@ int main() {
     char texto[caracteresTotal];
 
     printf("Digite um texto: ");
-    scanf("%s", texto);
+    gets(texto);
+
+    //scanf lê apenas até o primeiro espaço em branco nao uma linha completa
 
     contarCaracteres(texto);
 
